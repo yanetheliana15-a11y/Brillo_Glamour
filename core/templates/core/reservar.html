@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reservar cita | Brillo & Glamour</title>
+
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+</head>
+
+<body>
+
+    <section class="reserva">
+
+        <h1>Reserva tu cita</h1>
+
+        <p>
+            Elige el servicio que deseas y los datos de tu cita.
+        </p>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <label for="cliente">Nombre completo</label>
+            <input type="text" id="cliente" name="cliente"
+                placeholder="Escribe tu nombre">
+
+            <label for="servicio">Servicio</label>
+            <select id="servicio" name="servicio">
+
+                <option value="">Selecciona un servicio</option>
+
+                {% for servicio in servicios %}
+                    <option value="{{ servicio.id }}">
+                        {{ servicio.nombre }}
+                    </option>
+                {% endfor %}
+
+            </select>
+
+            <label for="fecha">Fecha</label>
+            <input type="date" id="fecha" name="fecha">
+
+            <label for="hora">Hora</label>
+            <input type="time" id="hora" name="hora">
+
+            <button type="submit">
+                Confirmar reserva
+            </button>
+
+        </form>
+
+    </section>
+
+</body>
+
+</html>
