@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Servicio(models.Model):
@@ -12,6 +13,13 @@ class Servicio(models.Model):
 
 
 class Reserva(models.Model):
+    usuario = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True
+    )
+
     cliente = models.CharField(max_length=100)
     servicio = models.ForeignKey(Servicio, on_delete=models.CASCADE)
     fecha = models.DateField()
