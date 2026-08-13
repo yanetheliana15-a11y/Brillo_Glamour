@@ -1,6 +1,5 @@
 from django.contrib import admin
-
-from .models import Servicio
+from .models import Servicio, Reserva
 
 admin.site.register(Servicio)
-# Register your models here.
+admin.site.register(Reserva)
