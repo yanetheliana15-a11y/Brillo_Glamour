@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
 from .models import Servicio, Reserva
 
 
@@ -124,3 +125,19 @@ def editar_reserva(request, reserva_id):
     return render(request, 'core/editar_reserva.html', {
         'reserva': reserva
     })
+def api_servicios(request):
+
+    servicios = Servicio.objects.all()
+
+    datos = []
+
+    for servicio in servicios:
+        datos.append({
+            'id': servicio.id,
+            'nombre': servicio.nombre,
+            'descripcion': servicio.descripcion,
+            'precio': str(servicio.precio),
+            'duracion': servicio.duracion
+        })
+
+    return JsonResponse(datos, safe=False)

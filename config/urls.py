@@ -26,6 +26,7 @@ urlpatterns = [
     path('login/', views.iniciar_sesion, name='login'),
     path('logout/', views.cerrar_sesion, name='logout'),
     path('mis-reservas/', views.mis_reservas, name='mis_reservas'),
+    path('api/servicios/', views.api_servicios, name='api_servicios'),
 
     path(
     'cancelar-reserva/<int:reserva_id>/',
