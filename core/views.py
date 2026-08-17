@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -75,3 +75,52 @@ def iniciar_sesion(request):
             return redirect('inicio')
 
     return render(request, 'core/login.html')
+
+
+@login_required
+def cerrar_sesion(request):
+    logout(request)
+    return redirect('inicio')
+
+@login_required
+def mis_reservas(request):
+    reservas = Reserva.objects.filter(usuario=request.user).order_by('fecha', 'hora')
+
+    return render(request, 'core/mis_reservas.html', {
+        'reservas': reservas
+    })
+
+@login_required
+def cancelar_reserva(request, reserva_id):
+
+    reserva = get_object_or_404(
+        Reserva,
+        id=reserva_id,
+        usuario=request.user
+    )
+
+    if request.method == 'POST':
+        reserva.estado = 'Cancelada'
+        reserva.save()
+
+    return redirect('mis_reservas')
+
+@login_required
+def editar_reserva(request, reserva_id):
+
+    reserva = get_object_or_404(
+        Reserva,
+        id=reserva_id,
+        usuario=request.user
+    )
+
+    if request.method == 'POST':
+        reserva.fecha = request.POST.get('fecha')
+        reserva.hora = request.POST.get('hora')
+        reserva.save()
+
+        return redirect('mis_reservas')
+
+    return render(request, 'core/editar_reserva.html', {
+        'reserva': reserva
+    })

@@ -1,0 +1,112 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mis reservas - Brillo & Glamour</title>
+
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+</head>
+
+<body>
+
+    <main class="mis-reservas">
+
+        <h1>Mis reservas</h1>
+
+        <p class="subtitulo-reservas">
+            Aquí puedes consultar y gestionar tus citas.
+        </p>
+
+        {% if reservas %}
+
+            <div class="lista-reservas">
+
+                {% for reserva in reservas %}
+
+                    <div class="reserva-card">
+
+                        <div class="reserva-decoracion">✦</div>
+
+                        <h2>{{ reserva.servicio.nombre }}</h2>
+
+                        <div class="reserva-info">
+
+                            <p>
+                                <strong>Fecha</strong>
+                                {{ reserva.fecha }}
+                            </p>
+
+                            <p>
+                                <strong>Hora</strong>
+                                {{ reserva.hora }}
+                            </p>
+
+                            <p>
+                                <strong>Estado</strong>
+                                <span class="estado">
+                                    {{ reserva.estado }}
+                                </span>
+                            </p>
+
+                        </div>
+
+                        {% if reserva.estado == "Pendiente" %}
+
+                            <div class="reserva-acciones">
+
+                                <a
+                                    href="{% url 'editar_reserva' reserva.id %}"
+                                    class="btn-modificar"
+                                >
+                                    Modificar reserva
+                                </a>
+
+                                <form
+                                    method="POST"
+                                    action="{% url 'cancelar_reserva' reserva.id %}"
+                                >
+                                    {% csrf_token %}
+
+                                    <button
+                                        type="submit"
+                                        class="btn-cancelar"
+                                    >
+                                        Cancelar reserva
+                                    </button>
+
+                                </form>
+
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        {% else %}
+
+            <div class="sin-reservas">
+
+                <span>❀</span>
+
+                <p>No tienes reservas actualmente.</p>
+
+            </div>
+
+        {% endif %}
+
+        <a href="{% url 'inicio' %}" class="volver-inicio">
+            Volver al inicio
+        </a>
+
+    </main>
+
+</body>
+</html>

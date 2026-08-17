@@ -1,0 +1,84 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Modificar reserva - Brillo & Glamour</title>
+
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+</head>
+
+<body>
+
+    <main class="editar-reserva">
+
+        <h1>Modificar reserva</h1>
+
+        <p class="editar-subtitulo">
+            Ajusta los datos de tu cita y guarda los cambios.
+        </p>
+
+        <div class="reserva-actual">
+
+            <span>✦</span>
+
+            <p>
+                Servicio seleccionado
+            </p>
+
+            <h2>
+                {{ reserva.servicio.nombre }}
+            </h2>
+
+        </div>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <label for="fecha">
+                Nueva fecha
+            </label>
+
+            <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                value="{{ reserva.fecha|date:'Y-m-d' }}"
+                required
+            >
+
+            <label for="hora">
+                Nueva hora
+            </label>
+
+            <input
+                type="time"
+                id="hora"
+                name="hora"
+                value="{{ reserva.hora|time:'H:i' }}"
+                required
+            >
+
+            <button type="submit">
+                Guardar cambios
+            </button>
+
+        </form>
+
+        <a
+            href="{% url 'mis_reservas' %}"
+            class="volver-reservas"
+        >
+            ← Volver a mis reservas
+        </a>
+
+    </main>
+
+</body>
+
+</html>

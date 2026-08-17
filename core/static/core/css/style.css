@@ -1,45 +1,2084 @@
+/* =========================================================
+   BRILLO & GLAMOUR
+   Estilo: salón de belleza + glicinias + inspiración asiática
+   ========================================================= */
+
+:root {
+    --perla: #EDDFC6;
+    --grullo: #AA9A5A;
+    --brown-yellow: #C88E61;
+    --puce: #C67EA3;
+    --violet: #5D284C;
+
+    --lila-claro: #eee5f2;
+    --lila-suave: #f5eff7;
+    --blanco: #fffdfb;
+    --texto: #3d2633;
+}
+
+
+/* =========================================================
+   CONFIGURACIÓN GENERAL
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #fff7fb;
-    color: #3d2633;
+    background: var(--lila-suave);
+    color: var(--texto);
 }
 
-.hero {
-    text-align: center;
-    padding: 80px 20px;
+/* =========================================================
+NAVEGACIÓN
+========================================================= */
+
+.menu-usuario {
+    width: min(1100px, calc(100% - 40px));
+
+    margin: 20px auto 0;
+    padding: 10px 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    background: rgba(255, 253, 251, 0.68);
+
+    border: 1px solid rgba(198, 126, 163, 0.30);
+    border-radius: 22px;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 6px 20px rgba(93, 40, 76, 0.12);
+
+    position: relative;
+    z-index: 20;
 }
+
+/* Nombre del salón */
+
+.menu-marca {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: var(--violet);
+
+    font-size: 18px;
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+.logo-nav-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-nav {
+    width: 180px;
+    height: auto;
+    display: block;
+}
+
+/* Enlaces */
+
+.menu-enlaces {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.menu-enlaces a {
+    position: relative;
+
+    padding: 10px 15px;
+
+    color: var(--violet);
+
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    border-radius: 16px;
+
+    transition:
+        color 0.3s ease,
+        background-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.menu-enlaces a:hover {
+    color: var(--violet);
+
+    background: rgba(198, 126, 163, 0.18);
+
+    transform: translateY(-2px);
+}
+
+/* Pequeño detalle inferior */
+
+.menu-enlaces a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 5px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--grullo);
+
+    border-radius: 10px;
+
+    transform: translateX(-50%);
+
+    transition: width 0.3s ease;
+}
+
+.menu-enlaces a:hover::after {
+    width: 45%;
+}
+
+
+/* =========================================================
+   HERO / PORTADA
+   ========================================================= */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 80px 20px;
+
+    background:
+        linear-gradient(
+            rgba(245, 239, 247, 0.30),
+            rgba(237, 223, 198, 0.38)
+        ),
+        url("../images/fondo-glicinias.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border-bottom: 4px solid var(--puce);
+
+    position: relative;
+    overflow: hidden;
+
+    margin-top: -100px;
+    padding-top: 160px;
+}
+
+/* Decoración floral superior */
+
+.hero::before {
+    content: "❀";
+    position: absolute;
+    top: 25px;
+    left: 7%;
+
+    font-size: 70px;
+    color: var(--puce);
+
+    opacity: 0.25;
+}
+
+
+/* Decoración floral inferior */
+
+.hero::after {
+    content: "❀";
+    position: absolute;
+    bottom: 15px;
+    right: 8%;
+
+    font-size: 90px;
+    color: var(--grullo);
+
+    opacity: 0.20;
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.logo {
+    width: 320px;
+    max-width: 80%;
+    height: auto;
+
+    margin-bottom: 25px;
+
+    filter: drop-shadow(0 8px 12px rgba(93, 40, 76, 0.18));
+}
+
+
+/* =========================================================
+   TEXTOS DEL HERO
+   ========================================================= */
 
 .hero h1 {
     font-size: 48px;
     margin-bottom: 15px;
+    color: var(--violet);
 }
 
-.hero h2 {
-    font-size: 28px;
+/* =========================================================
+   TEXTOS CENTRALES DEL HERO
+========================================================= */
+
+.hero-titulo {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 42px;
+    font-style: italic;
     font-weight: normal;
+
+    color: var(--violet);
+
+    margin: 20px 0 25px;
+    text-align: center;
+
+    letter-spacing: 0.5px;
+
+    animation: aparecerTitulo 1.2s ease-out;
 }
 
-.hero p {
-    font-size: 18px;
-    margin: 25px auto;
-    max-width: 600px;
+
+.hero-descripcion {
+    max-width: 650px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 19px;
+    font-style: italic;
+    line-height: 1.7;
+
+    color: var(--violet);
+
+    margin: 0 auto 35px;
+
+    animation: aparecerTexto 1.6s ease-out;
 }
+
+
+.hero-frase {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 17px;
+
+    font-style: italic;
+
+    color: var(--brown-yellow);
+
+    margin: 10px auto 30px;
+
+    animation: aparecerFrase 2s ease-out;
+}
+
+
+/* =========================================================
+   ANIMACIONES
+========================================================= */
+
+@keyframes aparecerTitulo {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes aparecerTexto {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes aparecerFrase {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+/* =========================================================
+BOTÓN RESERVAR
+========================================================= */
 
 .btn-reservar {
-    display: inline-block;
-    padding: 14px 28px;
-    background-color: #b76e8c;
-    color: rgb(245, 213, 213);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 15px 32px;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    color: var(--violet);
+    background-color: var(--blanco);
+
+    border-radius: 50px;
+    border: 1px solid rgba(107, 57, 90, 0.85);
+
+    text-align: center;
     text-decoration: none;
-    border-radius: 30px;
-    font-size: 16px;
-    border: none;
+
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+
     cursor: pointer;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
-.logo {
-    width: 320px;
-    height: auto;
+/* Efecto que entra desde la izquierda */
+
+.btn-reservar::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50px;
+
+    background: linear-gradient(
+        90deg,
+        rgba(198, 126, 163, 0.75),
+        rgba(237, 223, 198, 0.85),
+        rgba(198, 126, 163, 0.75)
+    );
+
+    opacity: 0.8;
+
+    pointer-events: none;
+
+    transition: left 0.4s ease-in-out;
+
+    z-index: -1;
+}
+
+/* Efecto que entra desde la derecha */
+
+.btn-reservar::after {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    right: -100%;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50px;
+
+    background: linear-gradient(
+        270deg,
+        rgba(93, 40, 76, 0.55),
+        rgba(198, 126, 163, 0.70),
+        rgba(93, 40, 76, 0.55)
+    );
+
+    opacity: 0.45;
+
+    pointer-events: none;
+
+    transition: right 0.4s ease-in-out;
+
+    z-index: -1;
+}
+
+/* Activación del efecto */
+
+.btn-reservar:hover::before {
+    left: 0;
+}
+
+.btn-reservar:hover::after {
+    right: 0;
+}
+
+/* Movimiento del botón */
+
+.btn-reservar:hover {
+    transform: translateY(-3px);
+
+    color: var(--violet);
+
+    box-shadow:
+        0 8px 20px rgba(93, 40, 76, 0.25);
+}
+
+/* Cuando se presiona */
+
+.btn-reservar:active {
+    transform: translateY(1px);
+
+    box-shadow: none;
+}
+/* =========================================================
+   SECCIÓN DE SERVICIOS
+   ========================================================= */
+
+.servicios {
+    padding: 80px 30px;
+
+    background:
+        linear-gradient(
+            rgba(245, 239, 247, 0.507),
+            rgba(237, 223, 198, 0.493)
+        ),
+        url("../images/fondo-servicios.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    text-align: center;
+}
+
+
+.servicios h2 {
+    color: var(--violet);
+
+    font-size: 34px;
+
+    margin-bottom: 45px;
+
+    position: relative;
+}
+
+
+/* Línea decorativa */
+
+.servicios h2::after {
+    content: "";
+
+    display: block;
+
+    width: 70px;
+    height: 3px;
+
+    margin: 12px auto 0;
+
+    background: var(--grullo);
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   LISTA DE SERVICIOS
+   ========================================================= */
+
+.lista-servicios {
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(250px, 1fr)
+    );
+
+    gap: 25px;
+}
+
+
+/* =========================================================
+   TARJETAS DE SERVICIO
+   ========================================================= */
+
+.servicio-card {
+
+    position: relative;
+    overflow: hidden;
+
+    background: rgba(255, 253, 251, 0.90);
+
+    padding: 30px 25px;
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(170, 154, 90, 0.45);
+
+    box-shadow:
+        0 8px 20px rgba(93, 40, 76, 0.10);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.servicio-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 14px 30px rgba(93, 40, 76, 0.18);
+}
+
+.servicio-card::before {
+    content: "✦";
+
+    position: absolute;
+    top: 12px;
+    right: 18px;
+
+    font-size: 18px;
+    color: var(--grullo);
+
+    opacity: 0.45;
+
+    transition: all 0.4s ease;
+}
+
+.servicio-card:hover::before {
+    transform: rotate(180deg) scale(1.4);
+    opacity: 0.9;
+}
+
+.servicio-card::after {
+    content: "❀";
+
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+
+    font-size: 20px;
+    color: var(--puce);
+
+    opacity: 0.18;
+
+    transition: all 0.4s ease;
+}
+
+.servicio-card:hover::after {
+    opacity: 0.5;
+    transform: scale(1.15);
+}
+
+
+.servicio-card h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 24px;
+    font-weight: normal;
+    font-style: italic;
+
+    color: var(--violet);
+
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.servicio-card:hover h3 {
+    color: var(--puce);
+    transition: color 0.3s ease;
+}
+
+
+.servicio-card p {
+    font-family: Arial, sans-serif;
+    color: #624653;
+
+    font-size: 16px;
+    line-height: 1.7;
+
+    margin: 10px 0;
+}
+
+.servicio-card p:last-child {
+    color: var(--grullo);
+    font-size: 14px;
+    font-style: italic;
+}
+
+
+.servicio-card .precio {
+    font-family: Georgia, "Times New Roman", serif;
+
+    color: var(--brown-yellow);
+
+    font-size: 23px;
+    font-weight: bold;
+
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* =========================================================
+   RESERVA DE CITA
+   ========================================================= */
+
+.reserva {
+    min-height: 100vh;
+
+    padding: 110px 20px 80px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(245, 239, 247, 0.72),
+            rgba(237, 223, 198, 0.78)
+        ),
+        url("../images/fondo-servicios.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* Título */
+
+.reserva h1 {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 42px;
+    font-style: italic;
+    font-weight: normal;
+
+    color: var(--violet);
+
+    margin: 0 0 12px;
+}
+
+
+/* Texto introductorio */
+
+.reserva > p {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 18px;
+    font-style: italic;
+
+    color: var(--brown-yellow);
+
+    margin: 0 0 30px;
+}
+
+
+/* Formulario */
+
+.reserva form {
+    width: min(500px, 100%);
+
+    padding: 40px 35px;
+
+    display: flex;
+    flex-direction: column;
+
+    text-align: left;
+
+    background: rgba(255, 253, 251, 0.90);
+
+    border: 1px solid rgba(170, 154, 90, 0.45);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 12px 30px rgba(93, 40, 76, 0.15);
+
+    position: relative;
+}
+
+
+/* Detalle floral */
+
+.reserva form::before {
+    content: "✦";
+
+    position: absolute;
+
+    top: 15px;
+    right: 20px;
+
+    font-size: 20px;
+
+    color: var(--grullo);
+
+    opacity: 0.55;
+}
+
+
+/* Etiquetas */
+
+.reserva label {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    color: var(--violet);
+
+    margin: 15px 0 7px;
+}
+
+
+/* Campos */
+
+.reserva input,
+.reserva select {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+
+    color: var(--texto);
+
+    background: rgba(245, 239, 247, 0.75);
+
+    border: 1px solid rgba(198, 126, 163, 0.45);
+
+    border-radius: 12px;
+
+    outline: none;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease;
+}
+
+
+/* Efecto al seleccionar */
+
+.reserva input:focus,
+.reserva select:focus {
+    background: var(--blanco);
+
+    border-color: var(--puce);
+
+    box-shadow:
+        0 0 0 3px rgba(198, 126, 163, 0.12);
+}
+
+
+/* Botón */
+
+.reserva button {
+    margin-top: 30px;
+
+    padding: 15px 25px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    font-family: Arial, sans-serif;
+
+    color: var(--violet);
+
+    background: var(--blanco);
+
+    border: 1px solid rgba(107, 57, 90, 0.75);
+
+    border-radius: 50px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease;
+}
+
+
+/* Hover del botón */
+
+.reserva button:hover {
+    background: var(--puce);
+
+    color: var(--blanco);
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(93, 40, 76, 0.25);
+}
+
+
+/* Presionar botón */
+
+.reserva button:active {
+    transform: translateY(1px);
+
+    box-shadow: none;
+}
+
+/* =========================================================
+   INICIO DE SESIÓN
+   ========================================================= */
+
+.login-page {
+    min-height: 100vh;
+
+    padding: 80px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(245, 239, 247, 0.623),
+            rgba(237, 223, 198, 0.664)
+        ),
+        url("../images/fondo-lpara-login.png");
+
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* Título */
+
+.login-page h2 {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 40px;
+    font-style: italic;
+    font-weight: normal;
+
+    color: var(--violet);
+
+    margin: 0 0 12px;
+}
+
+
+/* Texto */
+
+.login-page > p {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 17px;
+    font-style: italic;
+
+    color: var(--brown-yellow);
+
     margin-bottom: 25px;
+}
+
+
+/* Tarjeta del formulario */
+
+.login-page form {
+    width: min(420px, 100%);
+
+    padding: 40px 35px;
+
+    display: flex;
+    flex-direction: column;
+
+    text-align: left;
+
+    background: rgba(255, 253, 251, 0.91);
+
+    border: 1px solid rgba(170, 154, 90, 0.45);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 12px 30px rgba(93, 40, 76, 0.15);
+
+    position: relative;
+}
+
+
+/* Detalle decorativo */
+
+.login-page form::before {
+    content: "❀";
+
+    position: absolute;
+
+    top: 12px;
+    right: 18px;
+
+    font-size: 22px;
+
+    color: var(--puce);
+
+    opacity: 0.35;
+}
+
+
+/* Etiquetas */
+
+.login-page label {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    color: var(--violet);
+
+    margin: 15px 0 7px;
+}
+
+
+/* Campos */
+
+.login-page input {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+
+    color: var(--texto);
+
+    background: rgba(245, 239, 247, 0.75);
+
+    border: 1px solid rgba(198, 126, 163, 0.45);
+
+    border-radius: 12px;
+
+    outline: none;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease;
+}
+
+
+/* Campo seleccionado */
+
+.login-page input:focus {
+    background: var(--blanco);
+
+    border-color: var(--puce);
+
+    box-shadow:
+        0 0 0 3px rgba(198, 126, 163, 0.12);
+}
+
+
+/* Botón */
+
+.login-page button {
+    margin-top: 30px;
+
+    width: 100%;
+}
+
+
+/* Mensaje de error */
+
+.login-page form + p {
+    color: var(--puce);
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* =========================================================
+   CREAR CUENTA
+   ========================================================= */
+
+.registro-page {
+    min-height: 100vh;
+
+    padding: 80px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(245, 239, 247, 0.72),
+            rgba(237, 223, 198, 0.226)
+        ),
+        url("../images/fondo-glicinias-registro.png");
+
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* Título */
+
+.registro-page h2 {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 40px;
+    font-style: italic;
+    font-weight: normal;
+
+    color: var(--violet);
+
+    margin: 0 0 12px;
+}
+
+
+/* Texto */
+
+.registro-page > p {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 17px;
+    font-style: italic;
+
+    color: var(--brown-yellow);
+
+    margin: 0 0 25px;
+
+    max-width: 500px;
+}
+
+
+/* Tarjeta */
+
+.registro-page form {
+    width: min(450px, 100%);
+
+    padding: 40px 35px;
+
+    display: flex;
+    flex-direction: column;
+
+    text-align: left;
+
+    background: rgba(255, 253, 251, 0.91);
+
+    border: 1px solid rgba(170, 154, 90, 0.45);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 12px 30px rgba(93, 40, 76, 0.15);
+
+    position: relative;
+}
+
+
+/* Detalle floral */
+
+.registro-page form::before {
+    content: "✦";
+
+    position: absolute;
+
+    top: 15px;
+    right: 20px;
+
+    font-size: 20px;
+
+    color: var(--grullo);
+
+    opacity: 0.55;
+}
+
+
+/* Etiquetas */
+
+.registro-page label {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    color: var(--violet);
+
+    margin: 15px 0 7px;
+}
+
+
+/* Campos */
+
+.registro-page input {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+
+    color: var(--texto);
+
+    background: rgba(245, 239, 247, 0.75);
+
+    border: 1px solid rgba(198, 126, 163, 0.45);
+
+    border-radius: 12px;
+
+    outline: none;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease;
+}
+
+
+/* Campos seleccionados */
+
+.registro-page input:focus {
+    background: var(--blanco);
+
+    border-color: var(--puce);
+
+    box-shadow:
+        0 0 0 3px rgba(198, 126, 163, 0.12);
+}
+
+
+/* Botón */
+
+.registro-page button {
+    margin-top: 30px;
+
+    width: 100%;
+}
+
+/* =========================================================
+   MIS RESERVAS
+   ========================================================= */
+
+.mis-reservas {
+    min-height: 100vh;
+
+    padding: 80px 30px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(245, 239, 247, 0.72),
+            rgba(237, 223, 198, 0.78)
+        ),
+        url("../images/fondo-glicinias.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+/* Título */
+
+.mis-reservas h1 {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 42px;
+    font-style: italic;
+    font-weight: normal;
+
+    color: var(--violet);
+
+    margin: 0 0 10px;
+}
+
+
+/* Subtítulo */
+
+.subtitulo-reservas {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 17px;
+    font-style: italic;
+
+    color: var(--brown-yellow);
+
+    margin-bottom: 40px;
+}
+
+
+/* Contenedor */
+
+.lista-reservas {
+    max-width: 950px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 25px;
+}
+
+
+/* Tarjeta */
+
+.reserva-card {
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 30px 28px;
+
+    text-align: left;
+
+    background: rgba(255, 253, 251, 0.92);
+
+    border: 1px solid rgba(170, 154, 90, 0.45);
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 10px 25px rgba(93, 40, 76, 0.12);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.reserva-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 15px 30px rgba(93, 40, 76, 0.20);
+}
+
+
+/* Destello */
+
+.reserva-decoracion {
+    position: absolute;
+
+    top: 12px;
+    right: 18px;
+
+    font-size: 22px;
+
+    color: var(--grullo);
+
+    opacity: 0.55;
+
+    transition: transform 0.4s ease;
+}
+
+
+.reserva-card:hover .reserva-decoracion {
+    transform: rotate(180deg) scale(1.3);
+}
+
+
+/* Servicio */
+
+.reserva-card h2 {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 25px;
+    font-style: italic;
+    font-weight: normal;
+
+    color: var(--violet);
+
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+
+/* Información */
+
+.reserva-info p {
+    margin: 12px 0;
+
+    color: #624653;
+
+    font-size: 15px;
+}
+
+
+.reserva-info strong {
+    display: inline-block;
+
+    width: 70px;
+
+    color: var(--violet);
+
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+
+/* Estado */
+
+.estado {
+    display: inline-block;
+
+    padding: 5px 12px;
+
+    color: var(--violet);
+
+    background: rgba(198, 126, 163, 0.15);
+
+    border-radius: 20px;
+
+    font-size: 13px;
+}
+
+
+/* Botones */
+
+.reserva-acciones {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 25px;
+}
+
+
+.btn-modificar,
+.btn-cancelar {
+    padding: 10px 17px;
+
+    border-radius: 25px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease;
+}
+
+
+/* Modificar */
+
+.btn-modificar {
+    color: var(--blanco);
+
+    background: var(--puce);
+
+    border: 1px solid var(--puce);
+}
+
+
+.btn-modificar:hover {
+    background: var(--violet);
+
+    border-color: var(--violet);
+
+    transform: translateY(-2px);
+}
+
+
+/* Cancelar */
+
+.btn-cancelar {
+    color: var(--violet);
+
+    background: transparent;
+
+    border: 1px solid rgba(93, 40, 76, 0.45);
+}
+
+
+.btn-cancelar:hover {
+    color: var(--blanco);
+
+    background: var(--violet);
+
+    transform: translateY(-2px);
+}
+
+
+/* Sin reservas */
+
+.sin-reservas {
+    max-width: 450px;
+
+    margin: 40px auto;
+
+    padding: 35px;
+
+    background: rgba(255, 253, 251, 0.90);
+
+    border-radius: 22px;
+
+    border: 1px solid rgba(170, 154, 90, 0.45);
+}
+
+
+.sin-reservas span {
+    display: block;
+
+    font-size: 35px;
+
+    color: var(--puce);
+
+    margin-bottom: 10px;
+}
+
+
+.sin-reservas p {
+    color: #624653;
+}
+
+
+/* Volver */
+
+.volver-inicio {
+    display: inline-block;
+
+    margin-top: 40px;
+
+    color: var(--violet);
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    text-decoration: none;
+
+    border-bottom: 1px solid var(--grullo);
+
+    padding-bottom: 4px;
+
+    transition: color 0.3s ease;
+}
+
+
+.volver-inicio:hover {
+    color: var(--puce);
+}
+
+/* =========================================================
+   EDITAR RESERVA
+   ========================================================= */
+
+.editar-reserva {
+    min-height: 100vh;
+
+    padding: 80px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(245, 239, 247, 0.72),
+            rgba(237, 223, 198, 0.78)
+        ),
+        url("../images/fondo-editar.png");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+/* Título */
+
+.editar-reserva h1 {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 42px;
+    font-style: italic;
+    font-weight: normal;
+
+    color: var(--violet);
+
+    margin: 0 0 10px;
+}
+
+
+/* Subtítulo */
+
+.editar-subtitulo {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 17px;
+    font-style: italic;
+
+    color: var(--brown-yellow);
+
+    margin-bottom: 25px;
+}
+
+
+/* Servicio actual */
+
+.reserva-actual {
+    width: min(450px, 100%);
+
+    padding: 20px;
+
+    margin-bottom: 20px;
+
+    background: rgba(255, 253, 251, 0.78);
+
+    border: 1px solid rgba(170, 154, 90, 0.40);
+
+    border-radius: 20px;
+}
+
+
+.reserva-actual span {
+    font-size: 22px;
+
+    color: var(--grullo);
+
+    opacity: 0.7;
+}
+
+
+.reserva-actual p {
+    margin: 8px 0;
+
+    color: #624653;
+
+    font-size: 14px;
+    font-style: italic;
+}
+
+
+.reserva-actual h2 {
+    margin: 5px 0 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 24px;
+    font-style: italic;
+    font-weight: normal;
+
+    color: var(--violet);
+}
+
+
+/* Formulario */
+
+.editar-reserva form {
+    width: min(450px, 100%);
+
+    padding: 35px;
+
+    display: flex;
+    flex-direction: column;
+
+    text-align: left;
+
+    background: rgba(255, 253, 251, 0.92);
+
+    border: 1px solid rgba(170, 154, 90, 0.45);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 12px 30px rgba(93, 40, 76, 0.15);
+}
+
+
+/* Etiquetas */
+
+.editar-reserva label {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    color: var(--violet);
+
+    margin: 12px 0 7px;
+}
+
+
+/* Campos */
+
+.editar-reserva input {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 15px;
+
+    color: var(--texto);
+
+    background: rgba(245, 239, 247, 0.75);
+
+    border: 1px solid rgba(198, 126, 163, 0.45);
+
+    border-radius: 12px;
+
+    outline: none;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease;
+}
+
+
+.editar-reserva input:focus {
+    background: var(--blanco);
+
+    border-color: var(--puce);
+
+    box-shadow:
+        0 0 0 3px rgba(198, 126, 163, 0.12);
+}
+
+
+/* Botón */
+
+.editar-reserva button {
+    margin-top: 25px;
+
+    padding: 14px 20px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    color: var(--blanco);
+
+    background: var(--puce);
+
+    border: 1px solid var(--puce);
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.editar-reserva button:hover {
+    background: var(--violet);
+
+    border-color: var(--violet);
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(93, 40, 76, 0.25);
+}
+
+
+/* Volver */
+
+.volver-reservas {
+    margin-top: 25px;
+
+    color: var(--violet);
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    text-decoration: none;
+
+    border-bottom: 1px solid var(--grullo);
+
+    padding-bottom: 4px;
+
+    transition: color 0.3s ease;
+}
+
+
+.volver-reservas:hover {
+    color: var(--puce);
+}
+
+/* =========================================================
+   RESPONSIVE
+   Adaptación para celulares y pantallas pequeñas
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    /* -----------------------------------------------------
+       CONFIGURACIÓN GENERAL
+       ----------------------------------------------------- */
+
+    body {
+        overflow-x: hidden;
+    }
+
+
+    /* -----------------------------------------------------
+       INICIO / HERO
+       ----------------------------------------------------- */
+
+    .hero {
+        min-height: 650px;
+        padding: 50px 15px;
+    }
+
+    .logo {
+        width: 250px;
+        max-width: 85%;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero h2 {
+        font-size: 23px;
+        padding: 8px 18px;
+    }
+
+    .hero p {
+        font-size: 16px;
+        padding: 12px 18px;
+        max-width: 90%;
+    }
+
+    .btn-reservar {
+        padding: 13px 25px;
+        font-size: 15px;
+    }
+
+
+    /* -----------------------------------------------------
+       NAVEGACIÓN
+       ----------------------------------------------------- */
+
+    .menu-usuario {
+        width: calc(100% - 30px);
+
+        margin: 15px auto;
+
+        padding: 8px;
+
+        gap: 5px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    .menu-usuario a,
+    .menu-usuario span {
+        font-size: 13px;
+        padding: 8px 10px;
+    }
+
+
+    /* -----------------------------------------------------
+       SERVICIOS
+       ----------------------------------------------------- */
+
+    .servicios {
+        padding: 50px 15px;
+    }
+
+    .servicios h2 {
+        font-size: 28px;
+    }
+
+    .lista-servicios {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+
+        width: 100%;
+    }
+
+    .servicio-card {
+        padding: 25px 20px;
+    }
+
+    .servicio-card h3 {
+        font-size: 21px;
+    }
+
+
+    /* -----------------------------------------------------
+       RESERVAR CITA
+       ----------------------------------------------------- */
+
+    .reserva {
+        padding: 50px 15px;
+    }
+
+    .reserva h1 {
+        font-size: 34px;
+    }
+
+    .reserva form {
+        width: 100%;
+        padding: 28px 22px;
+    }
+
+    .reserva input,
+    .reserva select {
+        width: 100%;
+
+        padding: 12px;
+
+        font-size: 14px;
+    }
+
+    .reserva button {
+        width: 100%;
+
+        padding: 13px;
+    }
+
+
+    /* -----------------------------------------------------
+       LOGIN
+       ----------------------------------------------------- */
+
+    .login-page {
+        padding: 50px 15px;
+    }
+
+    .login-page h2 {
+        font-size: 34px;
+    }
+
+    .login-page > p {
+        font-size: 15px;
+        max-width: 90%;
+    }
+
+    .login-page form {
+        width: 100%;
+
+        padding: 30px 22px;
+    }
+
+    .login-page input {
+        width: 100%;
+
+        padding: 12px;
+    }
+
+    .login-page button {
+        width: 100%;
+    }
+
+
+    /* -----------------------------------------------------
+       REGISTRO
+       ----------------------------------------------------- */
+
+    .registro-page {
+        padding: 50px 15px;
+    }
+
+    .registro-page h2 {
+        font-size: 34px;
+    }
+
+    .registro-page > p {
+        font-size: 15px;
+        max-width: 90%;
+    }
+
+    .registro-page form {
+        width: 100%;
+
+        padding: 30px 22px;
+    }
+
+    .registro-page input {
+        width: 100%;
+
+        padding: 12px;
+    }
+
+    .registro-page button {
+        width: 100%;
+    }
+
+
+    /* -----------------------------------------------------
+       MIS RESERVAS
+       ----------------------------------------------------- */
+
+    .mis-reservas {
+        padding: 55px 15px;
+    }
+
+    .mis-reservas h1 {
+        font-size: 34px;
+    }
+
+    .subtitulo-reservas {
+        font-size: 15px;
+
+        margin-bottom: 30px;
+    }
+
+    .lista-reservas {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+
+        width: 100%;
+    }
+
+    .reserva-card {
+        padding: 25px 20px;
+    }
+
+    .reserva-card h2 {
+        font-size: 23px;
+    }
+
+    .reserva-info p {
+        font-size: 14px;
+    }
+
+    .reserva-acciones {
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+    .btn-modificar,
+    .btn-cancelar {
+        width: 100%;
+
+        text-align: center;
+
+        box-sizing: border-box;
+    }
+
+
+    /* -----------------------------------------------------
+       MODIFICAR RESERVA
+       ----------------------------------------------------- */
+
+    .editar-reserva {
+        padding: 50px 15px;
+    }
+
+    .editar-reserva h1 {
+        font-size: 34px;
+    }
+
+    .editar-subtitulo {
+        font-size: 15px;
+
+        max-width: 90%;
+    }
+
+    .reserva-actual {
+        width: 100%;
+
+        box-sizing: border-box;
+
+        padding: 18px;
+    }
+
+    .reserva-actual h2 {
+        font-size: 22px;
+    }
+
+    .editar-reserva form {
+        width: 100%;
+
+        box-sizing: border-box;
+
+        padding: 28px 22px;
+    }
+
+    .editar-reserva input {
+        width: 100%;
+
+        box-sizing: border-box;
+
+        padding: 12px;
+    }
+
+    .editar-reserva button {
+        width: 100%;
+    }
+
+
+    /* -----------------------------------------------------
+    BOTONES GENERALES
+       ----------------------------------------------------- */
+
+    button,
+    input,
+    select {
+        max-width: 100%;
+    }
+
 }
