@@ -21,22 +21,32 @@ from core import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.inicio, name='inicio'),
-    path('reservar/', views.reservar, name='reservar'),
     path('registro/', views.registro, name='registro'),
     path('login/', views.iniciar_sesion, name='login'),
     path('logout/', views.cerrar_sesion, name='logout'),
+    path('reservar/', views.reservar, name='reservar'),
     path('mis-reservas/', views.mis_reservas, name='mis_reservas'),
+    path(
+        'cancelar-reserva/<int:reserva_id>/',
+        views.cancelar_reserva,
+        name='cancelar_reserva'
+    ),
+    path(
+        'editar-reserva/<int:reserva_id>/',
+        views.editar_reserva,
+        name='editar_reserva'
+    ),
+
+    path(
+        'administrar-reservas/',
+        views.administrar_reservas,
+        name='administrar_reservas'
+    ),
+    path(
+        'administrar-reservas/<int:reserva_id>/estado/',
+        views.cambiar_estado_reserva,
+        name='cambiar_estado_reserva'
+    ),
+
     path('api/servicios/', views.api_servicios, name='api_servicios'),
-
-    path(
-    'cancelar-reserva/<int:reserva_id>/',
-    views.cancelar_reserva,
-    name='cancelar_reserva'
-    ),
-
-    path(
-    'editar-reserva/<int:reserva_id>/',
-    views.editar_reserva,
-    name='editar_reserva'
-    ),
 ]

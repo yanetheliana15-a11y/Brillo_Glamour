@@ -1,3 +1,4 @@
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="es">
@@ -5,9 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Registro - Brillo & Glamour</title>
-
+    <title>Crear cuenta - Brillo &amp; Glamour</title>
     <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
 </head>
 
@@ -17,31 +16,46 @@
 
         <h2>Crear cuenta</h2>
 
-        <p>Regístrate en Brillo & Glamour para gestionar tus reservas.</p>
+        <p>Regístrate en Brillo &amp; Glamour para gestionar tus reservas.</p>
+
+        {% if messages %}
+            {% for message in messages %}
+                <p class="mensaje {{ message.tags }}">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
 
         <form method="POST">
             {% csrf_token %}
 
             <label for="username">Nombre de usuario</label>
-            <input type="text"
+            <input
+                type="text"
                 id="username"
                 name="username"
                 placeholder="Escribe tu nombre de usuario"
-                required>
+                autocomplete="username"
+                required
+            >
 
             <label for="email">Correo electrónico</label>
-            <input type="email"
+            <input
+                type="email"
                 id="email"
                 name="email"
                 placeholder="Escribe tu correo"
-                required>
+                autocomplete="email"
+                required
+            >
 
             <label for="password">Contraseña</label>
-            <input type="password"
+            <input
+                type="password"
                 id="password"
                 name="password"
                 placeholder="Crea una contraseña"
-                required>
+                autocomplete="new-password"
+                required
+            >
 
             <button type="submit" class="btn-reservar">
                 Crear cuenta
@@ -49,8 +63,16 @@
 
         </form>
 
+        <p>
+            ¿Ya tienes una cuenta?
+            <a href="{% url 'login' %}">Inicia sesión</a>
+        </p>
+
+        <a href="{% url 'inicio' %}" class="volver-inicio">
+            Volver al inicio
+        </a>
+
     </section>
 
 </body>
-
 </html>

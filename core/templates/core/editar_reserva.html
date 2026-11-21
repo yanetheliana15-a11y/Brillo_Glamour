@@ -1,14 +1,12 @@
-{% load static %}
 
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Modificar reserva - Brillo & Glamour</title>
-
+    <title>Modificar reserva - Brillo &amp; Glamour</title>
     <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
 </head>
 
@@ -26,13 +24,9 @@
 
             <span>✦</span>
 
-            <p>
-                Servicio seleccionado
-            </p>
+            <p>Servicio seleccionado</p>
 
-            <h2>
-                {{ reserva.servicio.nombre }}
-            </h2>
+            <h2>{{ reserva.servicio.nombre }}</h2>
 
         </div>
 
@@ -40,29 +34,18 @@
 
             {% csrf_token %}
 
-            <label for="fecha">
-                Nueva fecha
-            </label>
+            {{ formulario.cliente.as_hidden }}
+            {{ formulario.servicio.as_hidden }}
 
-            <input
-                type="date"
-                id="fecha"
-                name="fecha"
-                value="{{ reserva.fecha|date:'Y-m-d' }}"
-                required
-            >
+            <label for="id_fecha">Nueva fecha</label>
 
-            <label for="hora">
-                Nueva hora
-            </label>
+            {{ formulario.fecha }}
+            {{ formulario.fecha.errors }}
 
-            <input
-                type="time"
-                id="hora"
-                name="hora"
-                value="{{ reserva.hora|time:'H:i' }}"
-                required
-            >
+            <label for="id_hora">Nueva hora</label>
+
+            {{ formulario.hora }}
+            {{ formulario.hora.errors }}
 
             <button type="submit">
                 Guardar cambios
@@ -80,5 +63,4 @@
     </main>
 
 </body>
-
 </html>

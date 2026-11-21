@@ -1,3 +1,4 @@
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="es">
@@ -5,9 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Reservar cita | Brillo & Glamour</title>
-
+    <title>Reservar cita - Brillo &amp; Glamour</title>
     <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
 </head>
 
@@ -22,30 +21,40 @@
         </p>
 
         <form method="POST">
-            {% csrf_token %}
+    {% csrf_token %}
 
-            <label for="cliente">Nombre completo</label>
-            <input type="text" id="cliente" name="cliente"
-                placeholder="Escribe tu nombre">
+    {% if formulario.non_field_errors %}
+        <div class="errores">
+            <p>Por favor, revise el siguiente error:</p>
+            {% for error in formulario.non_field_errors %}
+                <p>{{ error }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
 
-            <label for="servicio">Servicio</label>
-            <select id="servicio" name="servicio">
+            <label for="{{ formulario.cliente.id_for_label }}">
+                Nombre completo
+            </label>
 
-                <option value="">Selecciona un servicio</option>
+            {{ formulario.cliente }}
 
-                {% for servicio in servicios %}
-                    <option value="{{ servicio.id }}">
-                        {{ servicio.nombre }}
-                    </option>
-                {% endfor %}
+            <label for="{{ formulario.servicio.id_for_label }}">
+                Servicio
+            </label>
 
-            </select>
+            {{ formulario.servicio }}
 
-            <label for="fecha">Fecha</label>
-            <input type="date" id="fecha" name="fecha">
+            <label for="{{ formulario.fecha.id_for_label }}">
+                Fecha
+            </label>
 
-            <label for="hora">Hora</label>
-            <input type="time" id="hora" name="hora">
+            {{ formulario.fecha }}
+
+            <label for="{{ formulario.hora.id_for_label }}">
+                Hora
+            </label>
+
+            {{ formulario.hora }}
 
             <button type="submit">
                 Confirmar reserva
@@ -53,8 +62,11 @@
 
         </form>
 
+        <a href="{% url 'inicio' %}" class="volver-inicio">
+            Volver al inicio
+        </a>
+
     </section>
 
 </body>
-
 </html>

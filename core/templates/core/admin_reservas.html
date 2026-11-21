@@ -1,0 +1,155 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrar reservas | Brillo &amp; Glamour</title>
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+</head>
+
+<body>
+
+    <main class="mis-reservas">
+
+        <h1>Administración de reservas</h1>
+
+        <p class="subtitulo-reservas">
+            Gestiona las solicitudes de citas de los clientes.
+        </p>
+
+        <a href="{% url 'inicio' %}" class="volver-inicio">
+            Volver al inicio
+        </a>
+
+        {% if messages %}
+            <div class="mensajes">
+                {% for message in messages %}
+                    <p class="mensaje {{ message.tags }}">
+                        {{ message }}
+                    </p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if reservas %}
+
+            <div class="lista-reservas">
+
+                {% for reserva in reservas %}
+
+                    <div class="reserva-card">
+
+                        <div class="reserva-decoracion">✦</div>
+
+                        <h2>Reserva #{{ reserva.id }}</h2>
+
+                        <div class="reserva-info">
+
+                            <p>
+                                <strong>Cliente:</strong>
+                                {{ reserva.cliente }}
+                            </p>
+
+                            <p>
+                                <strong>Usuario:</strong>
+                                {{ reserva.usuario.username }}
+                            </p>
+
+                            <p>
+                                <strong>Servicio:</strong>
+                                {{ reserva.servicio.nombre }}
+                            </p>
+
+                            <p>
+                                <strong>Fecha:</strong>
+                                {{ reserva.fecha|date:"d/m/Y" }}
+                            </p>
+
+                            <p>
+                                <strong>Hora:</strong>
+                                {{ reserva.hora|time:"h:i A" }}
+                            </p>
+
+                            <p>
+                                <strong>Estado:</strong>
+                                <span class="estado">
+                                    {{ reserva.estado }}
+                                </span>
+                            </p>
+
+                        </div>
+
+                        {% if reserva.estado == 'Pendiente' %}
+
+                            <div class="reserva-acciones">
+
+                                <form method="POST" action="{% url 'cambiar_estado_reserva' reserva.id %}">
+                                    {% csrf_token %}
+
+                                    <button
+                                        type="submit"
+                                        name="estado"
+                                        value="Confirmada"
+                                        class="btn-modificar"
+                                    >
+                                        Confirmar reserva
+                                    </button>
+
+                                    <button
+    type="submit"
+    name="estado"
+    value="Rechazada"
+    class="btn-cancelar"
+    onclick="return confirm('¿Deseas rechazar esta solicitud de reserva?');"
+>
+    Rechazar reserva
+</button>
+
+                                </form>
+
+                            </div>
+
+                        {% elif reserva.estado == 'Confirmada' %}
+
+                            <div class="reserva-acciones">
+
+                                <form method="POST" action="{% url 'cambiar_estado_reserva' reserva.id %}">
+                                    {% csrf_token %}
+
+                                    <button
+    type="submit"
+    name="estado"
+    value="Cancelada"
+    class="btn-cancelar"
+    onclick="return confirm('¿Deseas cancelar esta reserva confirmada?');"
+>
+    Cancelar reserva
+</button>
+                                </form>
+
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        {% else %}
+
+            <div class="sin-reservas">
+                <span>❀</span>
+                <p>No hay reservas registradas.</p>
+            </div>
+
+        {% endif %}
+
+    </main>
+
+</body>
+</html>

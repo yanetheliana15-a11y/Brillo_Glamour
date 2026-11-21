@@ -112,6 +112,30 @@ body {
     transform: translateY(-2px);
 }
 
+.menu-enlaces form {
+    margin: 0;
+}
+
+.menu-enlaces button {
+    padding: 10px 15px;
+    color: var(--violet);
+    background: var(--lila-claro);
+    border: 1px solid rgba(93, 40, 76, 0.25);
+    border-radius: 16px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.menu-enlaces button:hover {
+    color: var(--blanco);
+    background: var(--violet);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(93, 40, 76, 0.18);
+}
+
 .menu-enlaces a::after {
     content: "";
 
@@ -490,6 +514,13 @@ body {
         box-shadow 0.3s ease;
 }
 
+.servicio-card {
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}
 
 .servicio-card:hover {
     transform: translateY(-7px);
@@ -898,6 +929,10 @@ body {
     font-weight: bold;
 }
 
+.login-page input {
+    box-sizing: border-box;
+}
+
 .registro-page {
     min-height: 100vh;
 
@@ -1031,6 +1066,10 @@ body {
     margin-top: 30px;
 
     width: 100%;
+}
+
+.registro-page input {
+    box-sizing: border-box;
 }
 
 
@@ -1191,7 +1230,7 @@ body {
 
     flex-wrap: wrap;
 
-    gap: 10px;
+    gap: 15px;
 
     margin-top: 25px;
 }
@@ -1217,6 +1256,34 @@ body {
         background-color 0.3s ease;
 }
 
+.mensajes {
+    width: min(650px, 100%);
+    box-sizing: border-box;
+    margin: 0 auto 25px;
+}
+
+.mensaje {
+    padding: 13px 18px;
+    border-radius: 14px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.mensaje.success {
+    color: var(--violet);
+    background: rgba(170, 154, 90, 0.15);
+    border: 1px solid rgba(170, 154, 90, 0.45);
+}
+
+.mensaje.error {
+    color: var(--violet);
+    background: rgba(198, 126, 163, 0.13);
+    border: 1px solid rgba(198, 126, 163, 0.4);
+}
+
+.reserva-acciones form {
+    margin: 0;
+}
 
 .btn-modificar {
     color: var(--blanco);
@@ -1502,6 +1569,85 @@ body {
         0 8px 20px rgba(93, 40, 76, 0.25);
 }
 
+.editar-reserva form {
+    box-sizing: border-box;
+}
+
+.editar-reserva input {
+    box-sizing: border-box;
+}
+
+.editar-reserva h1 {
+    margin-bottom: 20px;
+}
+
+.editar-reserva button:active {
+    transform: translateY(1px);
+    box-shadow: none;
+}
+
+.editar-subtitulo {
+    margin: 0 0 25px;
+    color: var(--brown-yellow);
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-size: 17px;
+}
+
+.reserva-actual {
+    width: min(450px, 100%);
+    box-sizing: border-box;
+    margin-bottom: 22px;
+    padding: 18px;
+    background: rgba(255, 253, 251, 0.75);
+    border: 1px solid rgba(170, 154, 90, 0.4);
+    border-radius: 18px;
+}
+
+.reserva-actual span {
+    color: var(--grullo);
+    font-size: 22px;
+}
+
+.reserva-actual p {
+    margin: 8px 0;
+    color: var(--brown-yellow);
+    font-size: 14px;
+}
+
+.reserva-actual h2 {
+    margin: 0;
+    color: var(--violet);
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: normal;
+}
+
+.editar-reserva form,
+.editar-reserva input {
+    box-sizing: border-box;
+}
+
+.editar-reserva form {
+    width: min(450px, 100%);
+}
+
+.editar-reserva button:active {
+    transform: translateY(1px);
+    box-shadow: none;
+}
+
+.volver-reservas {
+    margin-top: 22px;
+    color: var(--violet);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.volver-reservas:hover {
+    color: var(--puce);
+}
+
 .volver-reservas {
     margin-top: 25px;
 
@@ -1522,6 +1668,28 @@ body {
 .volver-reservas:hover {
     color: var(--puce);
 }
+
+
+.errores {
+    padding: 15px 18px;
+    margin-bottom: 20px;
+    color: var(--violet);
+    background: rgba(198, 126, 163, 0.13);
+    border: 1px solid rgba(198, 126, 163, 0.4);
+    border-radius: 14px;
+}
+
+.errores p {
+    margin: 5px 0;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.errores p:first-child {
+    font-weight: bold;
+    color: var(--violet);
+}
+
 
 @media (max-width: 600px) {
 
@@ -1560,26 +1728,29 @@ body {
         font-size: 15px;
     }
 
+.menu-usuario {
+    width: calc(100% - 30px);
+    margin: 15px auto;
+    padding: 10px;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
 
-    .menu-usuario {
-        width: calc(100% - 30px);
+.menu-enlaces {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
 
-        margin: 15px auto;
-
-        padding: 8px;
-
-        gap: 5px;
-
-        flex-wrap: wrap;
-
-        justify-content: center;
-    }
-
-    .menu-usuario a,
-    .menu-usuario span {
-        font-size: 13px;
-        padding: 8px 10px;
-    }
+.menu-usuario a,
+.menu-usuario span,
+.menu-enlaces button {
+    font-size: 13px;
+    padding: 8px 10px;
+}
 
     .servicios {
         padding: 50px 15px;
@@ -1617,6 +1788,40 @@ body {
         width: 100%;
         padding: 28px 22px;
     }
+
+    .reserva form {
+    box-sizing: border-box;
+    max-width: 480px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    background: rgba(255, 253, 251, 0.93);
+    border: 1px solid rgba(170, 154, 90, 0.45);
+    border-radius: 25px;
+    box-shadow: 0 12px 30px rgba(93, 40, 76, 0.15);
+    position: relative;
+}
+
+.reserva input,
+.reserva select {
+    box-sizing: border-box;
+}
+
+.reserva h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-weight: normal;
+    color: var(--violet);
+    text-align: center;
+}
+
+.reserva > p {
+    color: var(--brown-yellow);
+    text-align: center;
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+}
 
     .reserva input,
     .reserva select {
@@ -1786,7 +1991,6 @@ body {
     .editar-reserva button {
         width: 100%;
     }
-------------------------------------------------- */
 
     button,
     input,
@@ -1794,4 +1998,353 @@ body {
         max-width: 100%;
     }
 
+}
+
+
+.sobre-nosotros {
+    padding: 80px 10%;
+    background-color: var(--lila-suave);
+    text-align: center;
+}
+
+.sobre-contenido {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.sobre-nosotros h2,
+.beneficios h2,
+.contacto h2 {
+    color: var(--violet);
+    font-size: 32px;
+    margin-bottom: 25px;
+}
+
+.sobre-nosotros p {
+    color: var(--texto);
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.sobre-nosotros h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-weight: normal;
+}
+
+.sobre-nosotros p {
+    max-width: 780px;
+    margin: 0 auto 18px;
+}
+
+.beneficios {
+    padding: 80px 8%;
+    background-color: var(--blanco);
+    text-align: center;
+}
+
+.lista-beneficios {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    max-width: 1000px;
+    margin: 35px auto 0;
+}
+
+.beneficio-card {
+    background-color: var(--lila-claro);
+    padding: 30px 25px;
+    border-radius: 18px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.beneficio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(93, 40, 76, 0.12);
+}
+
+.beneficio-card h3 {
+    color: var(--violet);
+    margin-bottom: 12px;
+}
+
+.beneficio-card p {
+    color: var(--texto);
+    line-height: 1.6;
+}
+
+.beneficio-card {
+    border: 1px solid rgba(170, 154, 90, 0.30);
+    box-shadow: 0 6px 18px rgba(93, 40, 76, 0.07);
+}
+
+.beneficio-card h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 21px;
+    font-weight: normal;
+}
+
+.beneficios h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-weight: normal;
+}
+
+.contacto {
+    padding: 80px 8%;
+    background-color: var(--perla);
+    text-align: center;
+}
+
+.contacto > p {
+    color: var(--texto);
+    margin-bottom: 35px;
+    line-height: 1.7;
+}
+
+.contacto-datos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto 35px;
+}
+
+.contacto-item {
+    background-color: var(--blanco);
+    padding: 25px 18px;
+    border-radius: 16px;
+}
+
+.contacto-item h3 {
+    color: var(--violet);
+    margin-bottom: 15px;
+}
+
+.contacto-item p,
+.contacto-item a {
+    color: var(--texto);
+    line-height: 1.7;
+    text-decoration: none;
+}
+
+.contacto-item a:hover {
+    color: var(--puce);
+    text-decoration: underline;
+}
+
+.contacto h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-weight: normal;
+}
+
+.contacto-item {
+    border: 1px solid rgba(170, 154, 90, 0.4);
+    box-shadow: 0 6px 18px rgba(93, 40, 76, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contacto-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 22px rgba(93, 40, 76, 0.14);
+}
+
+.contacto-item h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: normal;
+}
+
+.pie-pagina {
+    background-color: var(--violet);
+    color: var(--blanco);
+    text-align: center;
+    padding: 35px 20px;
+}
+
+.pie-pagina h3 {
+    margin-bottom: 12px;
+    font-size: 23px;
+}
+
+.pie-pagina p {
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+.pie-pagina h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-weight: normal;
+}
+
+.pie-pagina p:last-child {
+    margin-top: 20px;
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+.pie-pagina {
+    border-top: 3px solid var(--grullo);
+}
+
+@media (max-width: 600px) {
+    .sobre-nosotros,
+    .beneficios,
+    .contacto {
+        padding: 55px 7%;
+    }
+
+    .sobre-nosotros h2,
+    .beneficios h2,
+    .contacto h2 {
+        font-size: 26px;
+    }
+
+    .lista-beneficios,
+    .contacto-datos {
+        grid-template-columns: 1fr;
+    }
+
+    .beneficio-card {
+        padding: 25px 20px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 23px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    .menu-usuario {
+        width: calc(100% - 24px);
+        padding: 8px;
+        gap: 8px;
+        border-radius: 16px;
+    }
+
+    .menu-usuario a,
+    .menu-usuario span,
+    .menu-enlaces button {
+        font-size: 12px;
+        padding: 7px 9px;
+    }
+
+    .reserva-card,
+    .beneficio-card,
+    .contacto-item,
+    .servicio-card {
+        padding: 18px;
+        border-radius: 18px;
+    }
+
+    .lista-reservas {
+        gap: 16px;
+    }
+
+    .mis-reservas,
+    .sobre-nosotros,
+    .beneficios,
+    .contacto {
+        padding: 45px 16px;
+    }
+
+    .editar-reserva,
+    .reserva {
+        padding: 45px 15px;
+    }
+
+    .editar-reserva form,
+    .reserva form {
+        padding: 24px 18px;
+    }
+
+    .pie-pagina {
+        padding: 25px 15px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 19px;
+    }
+
+    h3 {
+        font-size: 16px;
+    }
+
+    p,
+    label,
+    a,
+    button,
+    input,
+    select {
+        font-size: 13px;
+    }
+
+    .menu-usuario {
+        width: calc(100% - 30px);
+        padding: 6px;
+        gap: 5px;
+    }
+
+    .menu-usuario a,
+    .menu-usuario span,
+    .menu-enlaces button {
+        padding: 6px 7px;
+        font-size: 11px;
+    }
+
+    .servicio-card,
+    .beneficio-card,
+    .contacto-item,
+    .reserva-card {
+        padding: 14px;
+        border-radius: 15px;
+    }
+
+    .lista-reservas,
+    .lista-beneficios {
+        gap: 12px;
+    }
+
+    .mis-reservas,
+    .sobre-nosotros,
+    .beneficios,
+    .contacto {
+        padding: 35px 12px;
+    }
+
+    .reserva,
+    .editar-reserva {
+        padding: 35px 12px;
+    }
+
+    .reserva form,
+    .editar-reserva form {
+        padding: 20px 15px;
+    }
+
+    .pie-pagina {
+        padding: 20px 12px;
+    }
 }
