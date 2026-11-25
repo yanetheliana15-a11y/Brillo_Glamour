@@ -2038,6 +2038,30 @@ body {
     margin: 0 auto 18px;
 }
 
+
+.sobre-nosotros {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.sobre-contenido {
+    flex: 1;
+}
+
+.sobre-imagen {
+    flex: 1;
+}
+
+.sobre-imagen img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+
 .beneficios {
     padding: 80px 8%;
     background-color: var(--blanco);
@@ -2347,4 +2371,71 @@ body {
     .pie-pagina {
         padding: 20px 12px;
     }
+}
+
+
+.lista-beneficios {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.beneficio-card {
+    overflow: hidden;
+    border-radius: 18px;
+    text-align: center;
+}
+
+.beneficio-card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.beneficio-card h3 {
+    margin: 15px 0 8px;
+}
+
+.beneficio-card p {
+    padding: 0 10px 15px;
+}
+
+@media (max-width: 768px) {
+    .lista-beneficios {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .beneficio-card img {
+        height: 145px;
+    }
+}
+
+
+.contacto {
+    background:
+        linear-gradient(rgba(45, 30, 55, 0.65), rgba(45, 30, 55, 0.65)),
+        url("../images/contacto-fondo.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 70px 30px;
+    color: white;
+}
+
+.contacto h2,
+.contacto h3,
+.contacto p,
+.contacto a {
+    color: white;
+}
+
+.contacto-item {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 15px;
+    padding: 20px;
 }
